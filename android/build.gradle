@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:8.7.0'
     }
 }
 
@@ -22,17 +22,21 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 35
+    namespace 'fr.g123k.flutterappbadge.flutterappbadger'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 26
+        targetSdkVersion 35
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
         disable 'InvalidPackage'
-    }
-    if (project.android.hasProperty('namespace')) {
-        namespace 'fr.g123k.flutterappbadge.flutterappbadger'
     }
 }
 
